@@ -1,0 +1,12 @@
+[
+  {
+    "id": 0,
+    "supplies": "pencil",
+    "quantity": 2
+  },
+  {
+    "id": 1,
+    "supplies": "note book",
+    "quantity": 2
+  }
+]
