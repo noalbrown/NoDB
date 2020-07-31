@@ -1,38 +1,115 @@
+/* Reset CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 .App {
-  text-align: center;
+  height: 100vh;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Header */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  height: 15%;
+  width: 100%;
+  background: black;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.header > h1 {
+  color: rgb(51, 230, 60);
+  font-size: 2.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-left: 30px;
+}
+
+.header > h3 {
   color: white;
+  font-size: 1.35rem;
+  margin-right: 100px;
+  animation: pulse 5s infinite;
+  font-style: italic;
 }
 
-.App-link {
-  color: #61dafb;
+/* Main Section */
+
+.body {
+  height: 60%;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Footer */
+
+.footer {
+  height: 25%;
+  width: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.footer p {
+  color:white;
+  font-size: 1.2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-top: 20px;
+}
+
+.footer p span {
+  color: rgb(51, 230, 60);
+  font-size: 2rem;
+}
+
+/* header h3 animation */
+@keyframes pulse {
+  0% {
+    color: rgb(51, 230, 60);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    color: black;
   }
 }
