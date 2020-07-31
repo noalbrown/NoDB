@@ -9,7 +9,7 @@ app.use(express.json());
 app.get('/api/backpack', getBackpack)
 app.get('/api/backpack/:id', getBackpackItem)
 app.post('/api/backpack', createBackpackItem)
-app.put('/api/backpack/:id', editBackpack)
-app.delete('api/backpack/:id', deleteBackpackItem)
+app.put('/api/backpack/edit/:id', editBackpack)
+app.delete('/api/backpack/:id', deleteBackpackItem)
 
 app.listen(port, () => console.log(`I am working properly on ${port}`));

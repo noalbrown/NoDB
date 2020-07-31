@@ -79,6 +79,28 @@ table {
 .body {
   height: 60%;
   width: 100%;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.body img {
+  justify-content: flex-start;
+}
+
+.body section {
+  position: absolute;
+}
+
+.add-list {
+  padding-bottom: 150px;
+  
+}
+
+.add-list input {
+  font-weight: bolder;
+  padding:5px;
 }
 
 /* Footer */

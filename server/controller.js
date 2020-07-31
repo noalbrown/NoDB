@@ -18,18 +18,27 @@ module.exports = {
     let newBackpackItem = { id, supplies, quantity }
     backpack.push(newBackpackItem)
     id++
+    if (!newBackpackItem) {
+      return res.status(404).send('Did Not Work')
+    }
     res.status(200).send(backpack)
   },
   editBackpack: (req, res) => {
     const { newEdit } = req.body
-    const i = backpack.findIndex(e => e.id === +req.params.id)
+    let i = backpack.findIndex(e => e.id === +req.params.id)
     backpack[i] = { ...backpack[i], ...newEdit }
+    if (!i) {
+      return res.status(404).send('Could Not Alter Item')
+    }
     res.status(200).send(backpack)
   },
   deleteBackpackItem: (req, res) => {
     const { id } = req.params
-    const i = backpack.findIndex(e => e.id === +id)
+    let index = backpack.findIndex(e => e.id === +id)
     backpack.splice(index, 1)
+    if (!index) {
+      return res.status(404).send('Could not delete')
+    }
     res.status(200).send(backpack)
   }
 }

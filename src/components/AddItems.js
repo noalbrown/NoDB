@@ -17,18 +17,20 @@ class AddItems extends Component {
     })
   }
 
-  handleAdd(click) {
+  handleAdd(e) {
     const { supplies, quantity } = this.state
-    click.preventDefault()
-    this.props.addBackPackItem(supplies, quantity)
+    e.preventDefault()
+    this.props.addBackpackItem(supplies, quantity)
+    // This empties the input squares after submission!
+    this.setState({ supplies: "", quantity: "" })
   }
 
   render() {
     const { supplies, quantity } = this.state;
     return (
-      <form className="addItems" onSubmit={this.handleAdd}>
+      <form className="addItems" onSubmit={(e) => this.handleAdd(e)}>
         <input
-          name="supply"
+          name="supplies"
           value={supplies}
           placeholder="Add Supplies"
           onChange={this.handleChange} />

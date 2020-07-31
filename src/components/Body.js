@@ -7,9 +7,11 @@ class Body extends Component {
   constructor() {
     super()
     this.state = {
-      backpackItems: []
+      backpack: []
     }
     this.addBackpackItem = this.addBackpackItem.bind(this)
+    this.editBackpack = this.editBackpack.bind(this)
+    this.deleteBackpackItem = this.deleteBackpackItem.bind(this)
   }
 
   componentDidMount() {
@@ -22,17 +24,33 @@ class Body extends Component {
         this.setState({
           backpack: res.data
         })
-      }
-      ).catch(error => console.log(error))
+      }).catch(error => console.log(error))
   }
 
   addBackpackItem(supplies, quantity) {
-    const id = this.state.backpackItems[this.state.backpackItems.length - 1].id + 1
-    const newBackpackItem = { id, supplies, quantity }
-    const newArr = [...this.state.backpackItems, newBackpackItem]
-    this.setState({
-      backpackItems: newArr
-    })
+    axios.post('/api/backpack', { supplies, quantity }).then(res => {
+      this.setState({
+        backpack: res.data
+      })
+    }).catch(error => console.log(error))
+  }
+
+  editBackpack = (id) => {
+    axios.put(`/api/backpack/edit/${id}`)
+      .then(res => {
+        this.setState({
+          backpack: res.data
+        })
+      }).catch(error => console.log(error))
+  }
+
+  deleteBackpackItem = (id) => {
+    axios.delete(`/api/backpack/${id}`)
+      .then(res => {
+        this.setState({
+          backpack: res.data
+        })
+      }).catch(error => console.log(error))
   }
 
 
@@ -40,11 +58,14 @@ class Body extends Component {
 
     return (
       <div className="body">
-        <section className="addlist">
+        <div>
+          <img src="https://lh3.googleusercontent.com/proxy/ZfBC34zjuEXvfBhmmVrc2JwNnE0lYjCw2UoMFfkOMkdsXZluxUgjgMGo3ldwfxgJTy4Zy_9xXZ5zrYVdQ_0ux9aiTdEH23bxXrGYTuTe6Ww7AWXIVnBoqXbT40R8" alt="backpack" />
+        </div>
+        <section className="add-list">
           <AddItems addBackpackItem={this.addBackpackItem} />
         </section>
         <section className="itemList">
-          <BackpackItem />
+          <BackpackItem editBackpack={this.editBackpack} deleteBackpackItem={this.deleteBackpackItem} backpack={this.state.backpack} />
         </section>
       </div>
     )
