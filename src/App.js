@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Body from './components/Body'
+// my reset Css is in my App.css file
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Body from './components/Body';
 
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
       <Header />
