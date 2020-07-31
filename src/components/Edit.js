@@ -4,7 +4,7 @@ import Items from './Items'
 const Edit = () => {
   return (
     <div className="edit">
-
+      <Items />
     </div>
   )
 };
