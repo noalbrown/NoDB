@@ -1,21 +1,65 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Buttons from './Buttons'
 
-const BackpackItem = (props) => {
-  const backpackMap = props.backpack.map(backpack => {
+class BackpackItem extends Component {
+  constructor() {
+    super()
+    this.state = {
+      edit: false,
+      quantity: '',
+      supplies: ''
+    }
+  }
+
+  toggleEdit = () => {
+    this.setState({
+      edit: !this.state.edit
+    })
+  }
+
+  handleQuantity(e) {
+    this.setState({
+      quantity: e.target.value
+    })
+  }
+
+  handleSupplies(e) {
+    this.setState({
+      supplies: e.target.value
+    })
+  }
+
+  render() {
+    const { backpack, editBackpack, deleteBackpackItem } = this.props
+    console.log(backpack)
     return (
       <div key={backpack.id}>
-        <p>{backpack.supplies} x {backpack.quantity}</p>
-        <Buttons
-          editBackpack={props.editBackpack}
-          deleteBackpackItem={props.deleteBackpackItem}
-          backpack={backpack} />
+        {this.state.edit ? (
+          <div>
+            <input onChange={(e) => {
+              this.handleSupplies(e)
+            }} />
+            <input onChange={(e) => {
+              this.handleQuantity(e)
+            }} />
+            <button onClick={() => {
+              editBackpack(backpack.id, this.state.supplies, this.state.quantity)
+              this.toggleEdit()
+            }}>Save</button>
+            <button onClick={this.toggleEdit}>Cancel</button>
+          </div>
+        ) : (
+            <div>
+              <p>{backpack.supplies} x {backpack.quantity}</p>
+              <Buttons
+                toggleEdit={this.toggleEdit}
+                deleteBackpackItem={deleteBackpackItem}
+                backpack={backpack} />
+            </div>
+          )}
       </div>
     )
-  })
-  return <div>
-    {backpackMap}
-  </div>
-};
+  };
+}
 
 export default BackpackItem;

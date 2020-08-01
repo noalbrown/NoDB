@@ -35,8 +35,8 @@ class Body extends Component {
     }).catch(error => console.log(error))
   }
 
-  editBackpack = (id) => {
-    axios.put(`/api/backpack/edit/${id}`)
+  editBackpack = (id, supplies, quantity) => {
+    axios.put(`/api/backpack/edit/${id}`, { supplies, quantity })
       .then(res => {
         this.setState({
           backpack: res.data
@@ -46,6 +46,15 @@ class Body extends Component {
 
   deleteBackpackItem = (id) => {
     axios.delete(`/api/backpack/${id}`)
+      .then(res => {
+        this.setState({
+          backpack: res.data
+        })
+      }).catch(error => console.log(error))
+  }
+
+  resetBackpack = () => {
+    axios.delete(`/api/backpack`)
       .then(res => {
         this.setState({
           backpack: res.data
@@ -65,8 +74,11 @@ class Body extends Component {
           <AddItems addBackpackItem={this.addBackpackItem} />
         </section>
         <section className="itemList">
-          <BackpackItem editBackpack={this.editBackpack} deleteBackpackItem={this.deleteBackpackItem} backpack={this.state.backpack} />
+          {this.state.backpack.map((backpack) => {
+            return <BackpackItem editBackpack={this.editBackpack} deleteBackpackItem={this.deleteBackpackItem} resetBackpack={this.resetBackpack} backpack={backpack} />
+          })}
         </section>
+        <button onClick={this.resetBackpack}>Empty Backpack!</button>
       </div>
     )
   };

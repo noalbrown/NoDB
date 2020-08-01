@@ -121,6 +121,24 @@ table {
   background: rgb(51, 230, 60);
 }
 
+.body > button {
+  position: absolute;
+  margin-top: 190px;
+  height: 30px;
+  font-style: oblique;
+  font-size: 1.1rem;
+  font-weight: bolder;
+  text-decoration: underline;
+  border-radius: 5%;
+  border: none;
+  background: transparent;
+  color: black;
+}
+
+.body > button:hover{
+  cursor: pointer;
+}
+
 .itemList {
   width: 20%;
   text-align: center;

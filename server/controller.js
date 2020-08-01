@@ -1,4 +1,5 @@
-const backpack = require('./backpack.json');
+let backpack = require('./backpack.json');
+const emptyBackpack = require('./backpack.json')
 let id = backpack[backpack.length - 1].id + 1
 
 module.exports = {
@@ -39,6 +40,11 @@ module.exports = {
     if (!index) {
       return res.status(404).send('Could not delete')
     }
+    res.status(200).send(backpack)
+  },
+  resetBackpack: (req, res) => {
+    backpack = [...emptyBackpack]
+    console.log(emptyBackpack)
     res.status(200).send(backpack)
   }
 }
