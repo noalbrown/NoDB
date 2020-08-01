@@ -5,8 +5,7 @@ const BackpackItem = (props) => {
   const backpackMap = props.backpack.map(backpack => {
     return (
       <div key={backpack.id}>
-        <p>{backpack.supplies}</p>
-        <p>{backpack.quantity}</p>
+        <p>{backpack.supplies} x {backpack.quantity}</p>
         <Buttons
           editBackpack={props.editBackpack}
           deleteBackpackItem={props.deleteBackpackItem}
@@ -14,7 +13,7 @@ const BackpackItem = (props) => {
       </div>
     )
   })
-  return <div className="itemButtons">
+  return <div>
     {backpackMap}
   </div>
 };

@@ -85,10 +85,6 @@ table {
 	align-items: center;
 }
 
-.body img {
-  justify-content: flex-start;
-}
-
 .body section {
   position: absolute;
 }
@@ -101,6 +97,53 @@ table {
 .add-list input {
   font-weight: bolder;
   padding:5px;
+}
+
+.addItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addItems button {
+  background: black;
+  color:white;
+  height: 1.9rem;
+  border: none;
+}
+
+.addItems :nth-child(2) {
+  width: 26%;
+}
+
+.addItems button:hover {
+  cursor: pointer;
+  background: rgb(51, 230, 60);
+}
+
+.itemList {
+  width: 20%;
+  text-align: center;
+}
+
+.itemList p {
+  font-size: 1.2rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: overline;
+  padding: 5px;;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.buttons button {
+  background: black;
+  border: none;
+  border-radius: 10%;
+  color: rgb(51, 230, 60);
+  margin-bottom: 5px;
 }
 
 /* Footer */

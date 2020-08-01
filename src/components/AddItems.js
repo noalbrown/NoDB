@@ -32,16 +32,15 @@ class AddItems extends Component {
         <input
           name="supplies"
           value={supplies}
-          placeholder="Add Supplies"
+          placeholder="First add an item"
           onChange={this.handleChange} />
-        <button type="submit">Add Item</button>
 
         <input
           name="quantity"
           value={quantity}
-          placeholder="How Many?"
+          placeholder="How many? "
           onChange={this.handleChange} />
-        <button type="submit">Add Amount</button>
+        <button type="submit">Add Item</button>
       </form>
     )
   };
