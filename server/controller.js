@@ -1,5 +1,5 @@
 let backpack = require('./backpack.json');
-const emptyBackpack = require('./backpack.json')
+let emptyBackpack = require('./backpack.json')
 let id = backpack[backpack.length - 1].id + 1
 
 module.exports = {
