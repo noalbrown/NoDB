@@ -68,7 +68,7 @@ class Body extends Component {
     return (
       <div className="body">
         <div>
-          <img src="https://lh3.googleusercontent.com/proxy/ZfBC34zjuEXvfBhmmVrc2JwNnE0lYjCw2UoMFfkOMkdsXZluxUgjgMGo3ldwfxgJTy4Zy_9xXZ5zrYVdQ_0ux9aiTdEH23bxXrGYTuTe6Ww7AWXIVnBoqXbT40R8" alt="backpack" />
+          <img src="http://clipart-library.com/img/1720645.png" alt="backpack" />
         </div>
         <section className="add-list">
           <AddItems addBackpackItem={this.addBackpackItem} />

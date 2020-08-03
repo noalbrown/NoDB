@@ -85,8 +85,21 @@ table {
 	align-items: center;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .body section {
   position: absolute;
+}
+
+.body img {
+  max-height: 550px;
+  width: auto;
+}
+
+.body > div {
+  z-index: -1;
 }
 
 .add-list {
@@ -117,7 +130,6 @@ table {
 }
 
 .addItems button:hover {
-  cursor: pointer;
   background: rgb(51, 230, 60);
 }
 
@@ -135,13 +147,16 @@ table {
   color: black;
 }
 
-.body > button:hover{
-  cursor: pointer;
+.body > button:hover {
+  font-weight: 850;
+  font-style: initial;
 }
 
 .itemList {
   width: 20%;
   text-align: center;
+  position: absolute;
+  right:80px;
 }
 
 .itemList p {
@@ -162,6 +177,10 @@ table {
   border-radius: 10%;
   color: rgb(51, 230, 60);
   margin-bottom: 5px;
+}
+
+.buttons button:hover {
+  transform: scale(1.5, 1.5);
 }
 
 /* Footer */
