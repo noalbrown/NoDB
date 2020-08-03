@@ -35,18 +35,20 @@ class BackpackItem extends Component {
     return (
       <div key={backpack.id}>
         {this.state.edit ? (
-          <div>
-            <input onChange={(e) => {
+          <div className="edit-menu">
+            <input id="edit-menu-1" placeholder="Edit Item" onChange={(e) => {
               this.handleSupplies(e)
             }} />
-            <input onChange={(e) => {
+            <input id="edit-menu-2" placeholder="Edit Amount" onChange={(e) => {
               this.handleQuantity(e)
             }} />
-            <button onClick={() => {
-              editBackpack(backpack.id, this.state.supplies, this.state.quantity)
-              this.toggleEdit()
-            }}>Save</button>
-            <button onClick={this.toggleEdit}>Cancel</button>
+            <div>
+              <button onClick={() => {
+                editBackpack(backpack.id, this.state.supplies, this.state.quantity)
+                this.toggleEdit()
+              }}>Save</button>
+              <button onClick={this.toggleEdit}>Cancel</button>
+            </div>
           </div>
         ) : (
             <div>

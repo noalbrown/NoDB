@@ -25,9 +25,9 @@ module.exports = {
     res.status(200).send(backpack)
   },
   editBackpack: (req, res) => {
-    const { newEdit } = req.body
+    const { supplies, quantity } = req.body
     let i = backpack.findIndex(e => e.id === +req.params.id)
-    backpack[i] = { ...backpack[i], ...newEdit }
+    backpack[i] = { ...backpack[i], supplies, quantity }
     if (!i) {
       return res.status(404).send('Could Not Alter Item')
     }

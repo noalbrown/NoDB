@@ -166,6 +166,24 @@ button:hover {
   padding: 5px;;
 }
 
+.edit-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-menu div {
+  width: 70%;
+}
+
+.edit-menu button {
+  background: black;
+  border: none;
+  color: white;
+  margin: auto 15px;
+}
+
 .buttons {
   display: flex;
   justify-content: space-evenly;
